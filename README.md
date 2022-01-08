@@ -18,3 +18,12 @@
 - https://javascript.plainenglish.io/creating-your-first-portfolio-website-following-the-yellow-brick-react-road-925dadfa1bc1
 - https://dev.to/danytulumidis/5-daily-resources-for-web-developers-1dgg
 - https://dev.to/stanley/boas-praticas-de-programacao-3hl9
+- <https://linear.app>
+- https://frontegg.com/
+- https://teamsuccess.io/UX
+- https://regex101.com/
+- https://justgetflux.com/
+- https://prioritize.songthamtung.com/#
+- https://crontab.cronhub.io/
+- https://namae.dev/
+- https://learnxinyminutes.com/

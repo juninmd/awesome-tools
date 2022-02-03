@@ -35,3 +35,4 @@
 - https://roadmap.sh/ - `Caminho para estudos de desenvolvimento`
 - https://www.medusajs.com/#products `Ferramenta de e-commerce open source`
 - https://codebeautify.org/  `Utilitário para devs`
+- https://responsively.app/ `Extensão para responsividade`

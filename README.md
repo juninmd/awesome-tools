@@ -36,3 +36,4 @@
 - https://www.medusajs.com/#products `Ferramenta de e-commerce open source`
 - https://codebeautify.org/  `Utilitário para devs`
 - https://responsively.app/ `Extensão para responsividade`
+- https://smalldev.tools/ `Utilitário para devs`

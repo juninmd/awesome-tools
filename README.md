@@ -32,3 +32,4 @@
 - https://devdocs.io/
 - https://ray.so/ - `Gera prints bonitas de códigos`
 - https://poet.so/ - `Gera prints de posts no twitter/linkedin`
+- https://roadmap.sh/ - `Caminho para estudos de desenvolvimento`

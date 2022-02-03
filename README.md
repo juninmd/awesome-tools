@@ -29,3 +29,4 @@
 - https://learnxinyminutes.com/
 - http://asdf-vm.com/
 - https://volta.sh/
+- https://devdocs.io/

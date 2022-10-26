@@ -38,3 +38,4 @@
 - https://responsively.app/ `Extensão para responsividade`
 - https://smalldev.tools/ `Utilitário para devs`
 - https://programmerhumor.io/ `memes`
+- https://web.dio.me/home/ - 'Plataforma para aprender programação'

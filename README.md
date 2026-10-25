@@ -46,7 +46,6 @@
 | [ASDF Version Manager](http://asdf-vm.com/) | Gerenciador CLI de múltiplas versões de linguagens e ferramentas. |
 | [Volta](https://volta.sh/) | Gerenciador de ferramentas JavaScript rápido e sem atrito. |
 | [15 VS Code Shortcuts](https://betterprogramming.pub/15-useful-vscode-shortcuts-to-boost-your-productivity-415de3cb1910) | Artigo com atalhos do VS Code para aumentar a produtividade. |
-| [100 Days of Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=softwaredotcom.swdc-100-days-of-code) | Extensão do VS Code para acompanhar o desafio 100 Days of Code. |
 | [Prioritize](https://prioritize.songthamtung.com/#) | Ferramenta simples para priorização de tarefas via Matriz de Eisenhower. |
 
 ---
@@ -56,7 +55,6 @@
 | Recurso | Descrição |
 | :--- | :--- |
 | [EverSQL](https://www.eversql.com/) | Otimizador de consultas SQL impulsionado por IA. |
-| [Correios API](https://github.com/juninmd/correios-api) | Biblioteca/API para integração com os serviços dos Correios no Brasil. |
 | [Frontegg](https://frontegg.com/) | Plataforma SaaS completa para autenticação e gerenciamento de usuários. |
 | [Correlation ID in Node.js](https://medium.com/@evgeni.kisel/add-correlation-id-in-node-js-applications-fde759eed5e3) | Guia para adicionar Correlation ID em aplicações Node.js para rastreamento de logs. |
 | [MedusaJS](https://www.medusajs.com/#products) | Ferramenta de e-commerce open source baseada em Node.js. |
@@ -70,7 +68,6 @@
 | [Ray.so](https://ray.so/) | Gera prints bonitas de trechos de códigos para compartilhamento. |
 | [Poet.so](https://poet.so/) | Gera prints de posts e tuítes do Twitter/LinkedIn formatados para exibição. |
 | [Responsively App](https://responsively.app/) | Navegador dev para testar responsividade em múltiplas telas simultaneamente. |
-| [UX Team Success](https://teamsuccess.io/UX) | Guia e recursos de User Experience (UX) para equipes de produto. |
 | [Yellow Brick React Road](https://javascript.plainenglish.io/creating-your-first-portfolio-website-following-the-yellow-brick-react-road-925dadfa1bc1) | Tutorial para criar seu primeiro site de portfólio com React. |
 
 ---
@@ -83,7 +80,7 @@
 | [DevDocs](https://devdocs.io/) | Documentação rápida, estruturada e offline para diversas linguagens e frameworks. |
 | [30 Seconds of Code](https://www.30secondsofcode.org/) | Trechos curtos e práticos de código para diversas linguagens. |
 | [Learn X in Y Minutes](https://learnxinyminutes.com/) | Visão geral rápida da sintaxe de diversas linguagens de programação. |
-| [DIO (DigitalInnovationOne)](https://web.dio.me/home/) | Plataforma educacional para aprender programação e tecnologias. |
+| [DIO (DigitalInnovationOne)](https://www.dio.me/) | Plataforma educacional para aprender programação e tecnologias. |
 | [Boas Práticas de Programação](https://dev.to/stanley/boas-praticas-de-programacao-3hl9) | Artigo no DEV Community abordando boas práticas no desenvolvimento. |
 | [5 Daily Resources for Web Devs](https://dev.to/danytulumidis/5-daily-resources-for-web-developers-1dgg) | Recursos diários essenciais para desenvolvedores web. |
 | [Livros de Tênis](https://blog.lptennis.com/livros-que-todo-amante-do-tenis-deveria-ler/) | Recomendações de livros sobre tênis para os apreciadores do esporte. |
@@ -98,7 +95,6 @@
 | [Crontab Cronhub](https://crontab.cronhub.io/) | Editor visual e explicador de expressões Cron. |
 | [Namae](https://namae.dev/) | Utilitário para verificar disponibilidade de nomes de marca em múltiplos domínios e redes. |
 | [CodeBeautify](https://codebeautify.org/) | Conjunto de utilitários para formatar, converter e validar código. |
-| [SmallDev.tools](https://smalldev.tools/) | Coleção de pequenas ferramentas e utilitários úteis para devs. |
 | [Myki Password Manager](https://addons.mozilla.org/en-US/firefox/addon/myki-password-manager/) | Extensão para gerenciamento seguro de senhas no Firefox. |
 
 ---

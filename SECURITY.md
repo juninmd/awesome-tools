@@ -49,7 +49,7 @@ pip-audit
 ### GitHub Actions Security
 
 - Use `permissions: {}` at workflow level for least privilege
-- Pin actions to specific versions (not `latest`)
+- Pin actions to specific commit SHAs with version comments (e.g., action@<sha> # vX.Y.Z)
 - Avoid `on: schedule:` triggers (prefer `workflow_dispatch`)
 - Store all secrets in GitHub Secrets
 

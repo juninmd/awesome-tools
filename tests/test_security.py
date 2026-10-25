@@ -8,9 +8,7 @@ This module validates security measures including:
 - Security documentation presence
 """
 
-import os
 import re
-import subprocess
 import unittest
 from pathlib import Path
 

@@ -8,9 +8,7 @@ This module validates security measures including:
 - Security documentation presence
 """
 
-import os
 import re
-import subprocess
 import unittest
 from pathlib import Path
 
@@ -197,6 +195,39 @@ class TestDependabotConfiguration(unittest.TestCase):
                 content,
                 "Dependabot must have a schedule configured"
             )
+
+
+class TestAgentsDocumentation(unittest.TestCase):
+    """Test AGENTS.md guidelines file."""
+
+    def setUp(self):
+        """Set up test fixtures."""
+        self.repo_root = Path(__file__).parent.parent
+        self.agents_md_path = self.repo_root / "AGENTS.md"
+
+    def test_agents_md_exists(self):
+        """Verify AGENTS.md exists."""
+        self.assertTrue(
+            self.agents_md_path.exists(),
+            "AGENTS.md file must exist in repository root"
+        )
+
+    def test_agents_md_does_not_start_with_code_fence(self):
+        """Verify AGENTS.md does not start with a markdown code fence."""
+        content = self.agents_md_path.read_text(encoding="utf-8").lstrip()
+        self.assertFalse(
+            content.startswith("```"),
+            "AGENTS.md must not start with a code fence"
+        )
+
+    def test_agents_md_mentions_pytest(self):
+        """Verify AGENTS.md mentions pytest."""
+        content = self.agents_md_path.read_text(encoding="utf-8")
+        self.assertIn(
+            "pytest",
+            content,
+            "AGENTS.md must mention pytest"
+        )
 
 
 if __name__ == "__main__":

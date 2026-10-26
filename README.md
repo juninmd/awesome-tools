@@ -14,7 +14,8 @@
   <a href="#-apis--backend">Backend & APIs</a> •
   <a href="#-design-mídia--front-end">Design & UI</a> •
   <a href="#-aprendizado--estudos">Aprendizado</a> •
-  <a href="#-utilitários--utilidades-Gerais">Utilitários</a>
+  <a href="#-utilitários--ferramentas-gerais">Utilitários</a> •
+  <a href="#-sistema-aplicativos--outros">Sistema</a>
 </p>
 
 <p align="center">

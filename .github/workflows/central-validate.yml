@@ -1,0 +1,11 @@
+name: Central Validate PR
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    uses: juninmd/base-actions/.github/workflows/reusable-validate.yml@main

@@ -1,0 +1,13 @@
+name: Central Security Scan
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    uses: juninmd/base-actions/.github/workflows/reusable-security-scan.yml@main

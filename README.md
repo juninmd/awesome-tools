@@ -48,6 +48,7 @@
 | [Volta](https://volta.sh/) | Gerenciador de ferramentas JavaScript rápido e sem atrito. |
 | [15 VS Code Shortcuts](https://betterprogramming.pub/15-useful-vscode-shortcuts-to-boost-your-productivity-415de3cb1910) | Artigo com atalhos do VS Code para aumentar a produtividade. |
 | [Prioritize](https://prioritize.songthamtung.com/#) | Ferramenta simples para priorização de tarefas via Matriz de Eisenhower. |
+| [agent-qa](https://vostride.com) | Ferramenta open source de QA em linguagem natural para web, Android e iOS, com memória memidex, autoaperfeiçoamento revisável e evidências de execução. |
 
 ---
 

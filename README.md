@@ -1,113 +1,139 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.png" width="180" alt="Awesome Tools Logo" />
-</p>
+# Awesome Tools
 
-<h1 align="center">Awesome Tools</h1>
+**Uma coleção curada de ferramentas, utilitários e recursos de estudo para quem desenvolve software.**
 
-<p align="center">
-  Uma coleção curada de ferramentas incríveis, utilitários, recursos de aprendizado e produtividade para desenvolvedores.
-</p>
+Não é um dump de links: cada item tem URL pública e uma frase dizendo o que resolve. A lista
+é curta de propósito — entra o que dá para recomendar, sai o que virou página morta.
 
-<p align="center">
-  <a href="#-índice">Índice</a> •
-  <a href="#-ferramentas-de-desenvolvimento--produtividade">Desenvolvimento</a> •
-  <a href="#-apis--backend">Backend & APIs</a> •
-  <a href="#-design-mídia--front-end">Design & UI</a> •
-  <a href="#-aprendizado--estudos">Aprendizado</a> •
-  <a href="#-utilitários--ferramentas-gerais">Utilitários</a> •
-  <a href="#-sistema-aplicativos--outros">Sistema</a>
-</p>
+[![Validate](https://github.com/juninmd/awesome-tools/actions/workflows/central-validate.yml/badge.svg)](https://github.com/juninmd/awesome-tools/actions/workflows/central-validate.yml)
+[![Central Security](https://github.com/juninmd/awesome-tools/actions/workflows/central-security.yml/badge.svg)](https://github.com/juninmd/awesome-tools/actions/workflows/central-security.yml)
+[![SAST](https://github.com/juninmd/awesome-tools/actions/workflows/sast.yml/badge.svg)](https://github.com/juninmd/awesome-tools/actions/workflows/sast.yml)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Awesome-List-brightgreen.svg" alt="Awesome" />
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" />
-  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome" />
-</p>
+## Índice
 
----
+- [Como a lista é curada](#como-a-lista-é-curada)
+- [Desenvolvimento & produtividade](#desenvolvimento--produtividade)
+- [APIs & backend](#apis--backend)
+- [Design, mídia & front-end](#design-mídia--front-end)
+- [Aprendizado & estudos](#aprendizado--estudos)
+- [Utilitários](#utilitários)
+- [Sistema & desktop](#sistema--desktop)
+- [Diversos](#diversos)
+- [Como sugerir uma ferramenta](#como-sugerir-uma-ferramenta)
+- [Manutenção e CI](#manutenção-e-ci)
+- [Licença](#licença)
 
-## 📌 Índice
+## Como a lista é curada
 
-- [🛠️ Ferramentas de Desenvolvimento & Produtividade](#-ferramentas-de-desenvolvimento--produtividade)
-- [⚡ APIs & Backend](#-apis--backend)
-- [🎨 Design, Mídia & Front-End](#-design-mídia--front-end)
-- [📚 Aprendizado & Estudos](#-aprendizado--estudos)
-- [🔧 Utilitários & Ferramentas Gerais](#-utilitários--ferramentas-gerais)
-- [🖥️ Sistema, Aplicativos & Outros](#-sistema-aplicativos--outros)
+- **Utilidade antes de novidade:** resolve um problema recorrente de quem programa.
+- **URL pública e estável:** link quebrado ou que exige login para ser avaliado fica de fora.
+- **Uma linha basta:** se não dá para explicar em uma frase, o item ainda não está claro.
+- **Sem duplicata e sem link de afiliado:** fica o que tem menos atrito e nenhuma monetização.
 
----
-
-## 🛠️ Ferramentas de Desenvolvimento & Produtividade
+## Desenvolvimento & produtividade
 
 | Recurso | Descrição |
 | :--- | :--- |
-| [Linear](https://linear.app) | Gerenciador de projetos e tarefas focado em velocidade para times de software. |
-| [Insomnia](https://insomnia.rest/) | Cliente HTTP/REST e GraphQL moderno e poderoso para testes de APIs. |
-| [Sourcegraph](https://sourcegraph.com/search) | Busca de código em escala universal e navegação inteligente em repositórios. |
-| [ASDF Version Manager](http://asdf-vm.com/) | Gerenciador CLI de múltiplas versões de linguagens e ferramentas. |
-| [Volta](https://volta.sh/) | Gerenciador de ferramentas JavaScript rápido e sem atrito. |
-| [15 VS Code Shortcuts](https://betterprogramming.pub/15-useful-vscode-shortcuts-to-boost-your-productivity-415de3cb1910) | Artigo com atalhos do VS Code para aumentar a produtividade. |
-| [Prioritize](https://prioritize.songthamtung.com/#) | Ferramenta simples para priorização de tarefas via Matriz de Eisenhower. |
+| [Linear](https://linear.app) | Projetos e tarefas para times de software. |
+| [Insomnia](https://insomnia.rest/) | Cliente REST e GraphQL para testar APIs. |
+| [Sourcegraph](https://sourcegraph.com/search) | Busca de código em vários repositórios. |
+| [ASDF Version Manager](http://asdf-vm.com/) | Múltiplas versões de linguagens e ferramentas via CLI. |
+| [Volta](https://volta.sh/) | Versões de ferramentas JavaScript por projeto. |
+| [15 VS Code Shortcuts](https://betterprogramming.pub/15-useful-vscode-shortcuts-to-boost-your-productivity-415de3cb1910) | Atalhos do VS Code para produtividade. |
+| [Prioritize](https://prioritize.songthamtung.com/#) | Priorização de tarefas pela Matriz de Eisenhower. |
 
----
-
-## ⚡ APIs & Backend
+## APIs & backend
 
 | Recurso | Descrição |
 | :--- | :--- |
-| [EverSQL](https://www.eversql.com/) | Otimizador de consultas SQL impulsionado por IA. |
-| [Frontegg](https://frontegg.com/) | Plataforma SaaS completa para autenticação e gerenciamento de usuários. |
-| [Correlation ID in Node.js](https://medium.com/@evgeni.kisel/add-correlation-id-in-node-js-applications-fde759eed5e3) | Guia para adicionar Correlation ID em aplicações Node.js para rastreamento de logs. |
-| [MedusaJS](https://www.medusajs.com/#products) | Ferramenta de e-commerce open source baseada em Node.js. |
+| [EverSQL](https://www.eversql.com/) | Otimização de consultas SQL. |
+| [Frontegg](https://frontegg.com/) | Autenticação e gestão de usuários como serviço. |
+| [Correlation ID in Node.js](https://medium.com/@evgeni.kisel/add-correlation-id-in-node-js-applications-fde759eed5e3) | Como propagar Correlation ID em Node.js. |
+| [MedusaJS](https://www.medusajs.com/#products) | Base de e-commerce open source em Node.js. |
 
----
-
-## 🎨 Design, Mídia & Front-End
+## Design, mídia & front-end
 
 | Recurso | Descrição |
 | :--- | :--- |
-| [Ray.so](https://ray.so/) | Gera prints bonitas de trechos de códigos para compartilhamento. |
-| [Poet.so](https://poet.so/) | Gera prints de posts e tuítes do Twitter/LinkedIn formatados para exibição. |
-| [Responsively App](https://responsively.app/) | Navegador dev para testar responsividade em múltiplas telas simultaneamente. |
-| [Yellow Brick React Road](https://javascript.plainenglish.io/creating-your-first-portfolio-website-following-the-yellow-brick-react-road-925dadfa1bc1) | Tutorial para criar seu primeiro site de portfólio com React. |
+| [Ray.so](https://ray.so/) | Imagens de trechos de código. |
+| [Poet.so](https://poet.so/) | Imagens de posts do Twitter/X e LinkedIn. |
+| [Responsively App](https://responsively.app/) | Testa várias larguras de tela ao mesmo tempo. |
+| [Yellow Brick React Road](https://javascript.plainenglish.io/creating-your-first-portfolio-website-following-the-yellow-brick-react-road-925dadfa1bc1) | Tutorial de portfólio em React. |
 
----
-
-## 📚 Aprendizado & Estudos
+## Aprendizado & estudos
 
 | Recurso | Descrição |
 | :--- | :--- |
-| [Roadmap.sh](https://roadmap.sh/) | Caminhos e guias visuais para estudos de desenvolvimento de software. |
-| [DevDocs](https://devdocs.io/) | Documentação rápida, estruturada e offline para diversas linguagens e frameworks. |
-| [30 Seconds of Code](https://www.30secondsofcode.org/) | Trechos curtos e práticos de código para diversas linguagens. |
-| [Learn X in Y Minutes](https://learnxinyminutes.com/) | Visão geral rápida da sintaxe de diversas linguagens de programação. |
-| [DIO (DigitalInnovationOne)](https://www.dio.me/) | Plataforma educacional para aprender programação e tecnologias. |
-| [Boas Práticas de Programação](https://dev.to/stanley/boas-praticas-de-programacao-3hl9) | Artigo no DEV Community abordando boas práticas no desenvolvimento. |
-| [5 Daily Resources for Web Devs](https://dev.to/danytulumidis/5-daily-resources-for-web-developers-1dgg) | Recursos diários essenciais para desenvolvedores web. |
-| [Livros de Tênis](https://blog.lptennis.com/livros-que-todo-amante-do-tenis-deveria-ler/) | Recomendações de livros sobre tênis para os apreciadores do esporte. |
+| [Roadmap.sh](https://roadmap.sh/) | Trilhas visuais de estudo. |
+| [DevDocs](https://devdocs.io/) | Documentação de várias tecnologias, com modo offline. |
+| [30 Seconds of Code](https://www.30secondsofcode.org/) | Trechos curtos de código. |
+| [Learn X in Y Minutes](https://learnxinyminutes.com/) | Sintaxe de linguagens em uma página. |
+| [DIO](https://www.dio.me/) | Cursos de programação. |
+| [Boas Práticas de Programação](https://dev.to/stanley/boas-praticas-de-programacao-3hl9) | Artigo sobre organização de código. |
+| [5 Daily Resources for Web Devs](https://dev.to/danytulumidis/5-daily-resources-for-web-developers-1dgg) | Fontes para acompanhar o ecossistema web. |
 
----
-
-## 🔧 Utilitários & Ferramentas Gerais
+## Utilitários
 
 | Recurso | Descrição |
 | :--- | :--- |
-| [Regex101](https://regex101.com/) | Editor, testador e depurador interativo de expressões regulares (Regex). |
-| [Crontab Cronhub](https://crontab.cronhub.io/) | Editor visual e explicador de expressões Cron. |
-| [Namae](https://namae.dev/) | Utilitário para verificar disponibilidade de nomes de marca em múltiplos domínios e redes. |
-| [CodeBeautify](https://codebeautify.org/) | Conjunto de utilitários para formatar, converter e validar código. |
-| [Myki Password Manager](https://addons.mozilla.org/en-US/firefox/addon/myki-password-manager/) | Extensão para gerenciamento seguro de senhas no Firefox. |
+| [Regex101](https://regex101.com/) | Testa e explica expressões regulares. |
+| [Crontab Cronhub](https://crontab.cronhub.io/) | Editor visual de expressões cron. |
+| [Namae](https://namae.dev/) | Disponibilidade de nomes em domínios e redes. |
+| [CodeBeautify](https://codebeautify.org/) | Formata, converte e valida código. |
+| [Myki Password Manager](https://addons.mozilla.org/en-US/firefox/addon/myki-password-manager/) | Senhas no Firefox. |
 
----
-
-## 🖥️ Sistema, Aplicativos & Outros
+## Sistema & desktop
 
 | Recurso | Descrição |
 | :--- | :--- |
-| [Brave Browser](https://brave.com/) | Navegador focado em privacidade, velocidade e bloqueio de anúncios. |
-| [WebCatalog](https://webcatalog.app/) | Transforma aplicações web em aplicativos de desktop independentes. |
-| [Notepads App](https://github.com/JasonStein/Notepads) | Editor de texto moderno, leve e elegante com suporte a abas para Windows. |
-| [ModernFlyouts](https://www.microsoft.com/pt-br/p/modernflyouts-preview/9mt60qv066rp?ocid=badge&rtc=1&activetab=pivot:overviewtab) | Substituição moderna para os flyouts integrados de volume e brilho do Windows. |
-| [Rainmeter](https://www.rainmeter.net/) | Ferramenta de personalização de área de trabalho para Windows. |
-| [f.lux](https://justgetflux.com/) | Ajusta a temperatura de cor da tela de acordo com o horário do dia. |
-| [Programmer Humor](https://programmerhumor.io/) | Portal com memes e humor do mundo da programação. |
+| [Brave Browser](https://brave.com/) | Navegador com bloqueio de anúncios. |
+| [WebCatalog](https://webcatalog.app/) | Sites como apps de desktop. |
+| [Notepads](https://github.com/JasonStein/Notepads) | Editor de texto com abas para Windows. |
+| [ModernFlyouts](https://www.microsoft.com/pt-br/p/modernflyouts-preview/9mt60qv066rp?ocid=badge&rtc=1&activetab=pivot:overviewtab) | Flyouts de volume e brilho do Windows. |
+| [Rainmeter](https://www.rainmeter.net/) | Widgets para a área de trabalho. |
+| [f.lux](https://justgetflux.com/) | Temperatura de cor conforme o horário. |
+
+## Diversos
+
+Itens que não são ferramentas de desenvolvimento e ficaram do acervo original.
+
+| Recurso | Descrição |
+| :--- | :--- |
+| [Programmer Humor](https://programmerhumor.io/) | Memes de programação. |
+| [Livros de Tênis](https://blog.lptennis.com/livros-que-todo-amante-do-tenis-deveria-ler/) | Livros sobre tênis. |
+
+## Como sugerir uma ferramenta
+
+Abra uma issue ou pull request com **uma linha** na tabela da categoria mais próxima, no
+formato dos itens existentes:
+
+```markdown
+| [ASDF Version Manager](http://asdf-vm.com/) | Múltiplas versões de linguagens e ferramentas via CLI. |
+```
+
+PRs passam pelo workflow **Validate**. As checagens locais:
+
+```bash
+python -m pip install -r requirements-dev.txt
+pytest tests/test_security.py -v
+flake8 tests/ --max-line-length=120 --ignore=E501,W503
+```
+
+## Manutenção e CI
+
+| Workflow | Quando roda | O que faz |
+|---|---|---|
+| `central-validate.yml` | pull request | validação do reusable `juninmd/base-actions` |
+| `central-security.yml` | push em `master`, manual | varredura de segurança do reusable |
+| `security.yml` | push/PR em `main`, manual | TruffleHog, `pytest tests/test_security.py` e `flake8 tests/` |
+| `sast.yml` | push em `main`/`master`, manual | Semgrep, sem bloquear (`fail-semgrep: false`) |
+| `dependabot-auto-merge.yml` | PRs do Dependabot | auto-merge com checks verdes |
+
+> [!NOTE]
+> O branch padrão é `master`, mas o `security.yml` só dispara em `main`: na prática, ele roda
+> por `workflow_dispatch`. A varredura central cobre o push em `master`.
+
+## Licença
+
+O repositório **não tem arquivo de licença**. O README anterior exibia um badge MIT, mas não
+há texto que sustente esses termos; para reutilizar a lista, combine com o autor.

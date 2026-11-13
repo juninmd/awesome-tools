@@ -1,5 +1,9 @@
 # Awesome Tools
 
+<p align="center">
+  <img src="docs/readme/hero.png" alt="Banner ilustrativo do Awesome Tools (mockup com dados fictícios)" width="100%">
+</p>
+
 **Uma coleção curada de ferramentas, utilitários e recursos de estudo para quem desenvolve software.**
 
 Não é um dump de links: cada item tem URL pública e uma frase dizendo o que resolve. A lista
@@ -132,6 +136,18 @@ flake8 tests/ --max-line-length=120 --ignore=E501,W503
 > [!NOTE]
 > O branch padrão é `master`, mas o `security.yml` só dispara em `main`: na prática, ele roda
 > por `workflow_dispatch`. A varredura central cobre o push em `master`.
+
+## Imagens
+
+> [!NOTE]
+> **Mockups ilustrativos.** As telas abaixo foram geradas em HTML com dados fictícios (Playwright) e não são capturas de uma instalação real.
+
+<p align="center">
+  <img src="docs/readme/catalog.png" alt="Catálogo curado — mockup ilustrativo com dados fictícios" width="100%">
+  <br>
+  <sub>Catálogo curado — dados fictícios.</sub>
+</p>
+
 
 ## Licença
 

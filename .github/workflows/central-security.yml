@@ -10,4 +10,4 @@ permissions:
 
 jobs:
   security:
-    uses: juninmd/base-actions/.github/workflows/reusable-security-scan.yml@main
+    uses: juninmd/base-actions/.github/workflows/reusable-security-scan.yml@b5dffbe48ad66294ec4860a4a69594d1c304d962 # main

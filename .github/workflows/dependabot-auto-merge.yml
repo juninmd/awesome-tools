@@ -13,4 +13,4 @@ permissions:
 
 jobs:
   auto-merge:
-    uses: juninmd/base-actions/.github/workflows/reusable-dependabot-auto-merge.yml@main
+    uses: juninmd/base-actions/.github/workflows/reusable-dependabot-auto-merge.yml@b5dffbe48ad66294ec4860a4a69594d1c304d962 # main

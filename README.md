@@ -41,7 +41,7 @@ Não é um dump de links: cada item tem URL pública e uma frase dizendo o que r
 | [Linear](https://linear.app) | Projetos e tarefas para times de software. |
 | [Insomnia](https://insomnia.rest/) | Cliente REST e GraphQL para testar APIs. |
 | [Sourcegraph](https://sourcegraph.com/search) | Busca de código em vários repositórios. |
-| [ASDF Version Manager](http://asdf-vm.com/) | Múltiplas versões de linguagens e ferramentas via CLI. |
+| [ASDF Version Manager](https://asdf-vm.com/) | Múltiplas versões de linguagens e ferramentas via CLI. |
 | [Volta](https://volta.sh/) | Versões de ferramentas JavaScript por projeto. |
 | [15 VS Code Shortcuts](https://betterprogramming.pub/15-useful-vscode-shortcuts-to-boost-your-productivity-415de3cb1910) | Atalhos do VS Code para produtividade. |
 | [Prioritize](https://prioritize.songthamtung.com/#) | Priorização de tarefas pela Matriz de Eisenhower. |
@@ -112,7 +112,7 @@ Abra uma issue ou pull request com **uma linha** na tabela da categoria mais pr�
 formato dos itens existentes:
 
 ```markdown
-| [ASDF Version Manager](http://asdf-vm.com/) | Múltiplas versões de linguagens e ferramentas via CLI. |
+| [ASDF Version Manager](https://asdf-vm.com/) | Múltiplas versões de linguagens e ferramentas via CLI. |
 ```
 
 PRs passam pelo workflow **Validate**. As checagens locais:
@@ -129,13 +129,9 @@ flake8 tests/ --max-line-length=120 --ignore=E501,W503
 |---|---|---|
 | `central-validate.yml` | pull request | validação do reusable `juninmd/base-actions` |
 | `central-security.yml` | push em `master`, manual | varredura de segurança do reusable |
-| `security.yml` | push/PR em `main`, manual | TruffleHog, `pytest tests/test_security.py` e `flake8 tests/` |
+| `security.yml` | push/PR em `main`/`master`, manual | TruffleHog, `pytest tests/test_security.py` e `flake8 tests/` |
 | `sast.yml` | push em `main`/`master`, manual | Semgrep, sem bloquear (`fail-semgrep: false`) |
 | `dependabot-auto-merge.yml` | PRs do Dependabot | auto-merge com checks verdes |
-
-> [!NOTE]
-> O branch padrão é `master`, mas o `security.yml` só dispara em `main`: na prática, ele roda
-> por `workflow_dispatch`. A varredura central cobre o push em `master`.
 
 ## Imagens
 

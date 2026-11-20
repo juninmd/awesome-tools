@@ -43,47 +43,84 @@ class TestGitignoreSecurity(unittest.TestCase):
         self.assertIn("secrets/", content, ".gitignore must exclude secrets/ directory")
 
 
+SECRET_PATTERNS = {
+    "aws_access_key": re.compile(r"AKIA[0-9A-Z]{16}"),
+    "github_token": re.compile(r"ghp_[0-9a-zA-Z]{36}"),
+    "stripe_live_key": re.compile(r"sk_live_[0-9a-zA-Z]{24}"),
+    "stripe_test_key": re.compile(r"sk_test_[0-9a-zA-Z]{24}"),
+    "hardcoded_password": re.compile(r"password\s*=\s*[\"'][^\"']+[\"']", re.IGNORECASE),
+    "hardcoded_api_key": re.compile(r"api[_-]?key\s*=\s*[\"'][^\"']+[\"']", re.IGNORECASE),
+}
+BINARY_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".pyc"}
+# Generated, untracked directories (compiled fixtures above would match their own patterns)
+SKIPPED_DIRS = {".git", "__pycache__", ".pytest_cache"}
+
+
+def find_secrets(text):
+    """(pattern name, line number, masked match) for every hit; the value is never returned in full."""
+    hits = []
+    for lineno, line in enumerate(text.splitlines(), 1):
+        for name, pattern in SECRET_PATTERNS.items():
+            for match in pattern.finditer(line):
+                hits.append((name, lineno, match.group(0)[:4] + "***"))
+    return hits
+
+
+def tracked_text_files(repo_root):
+    """Every text file outside the .git directory itself (.github and .gitignore are included)."""
+    for path in repo_root.rglob("*"):
+        if SKIPPED_DIRS & set(path.relative_to(repo_root).parts):
+            continue
+        if path.is_file() and path.suffix.lower() not in BINARY_SUFFIXES:
+            yield path
+
+
 class TestSecretScanning(unittest.TestCase):
     """Test for accidentally committed secrets."""
 
-    def setUp(self):
-        self.repo_root = Path(__file__).parent.parent
-        self.common_secret_patterns = [
-            r'AKIA[0-9A-Z]{16}',
-            r'ghp_[0-9a-zA-Z]{36}',
-            r'sk_live_[0-9a-zA-Z]{24}',
-            r'sk_test_[0-9a-zA-Z]{24}',
-            r'password\s*=\s*["\'][^"\']+["\']',
-            r'api[_-]?key\s*=\s*["\'][^"\']+["\']',
-        ]
+    @classmethod
+    def setUpClass(cls):
+        repo_root = Path(__file__).parent.parent
+        # Single pass over the repository; unreadable files raise instead of counting as clean
+        cls.findings = {}
+        for path in tracked_text_files(repo_root):
+            hits = find_secrets(path.read_text(errors="ignore"))
+            if hits:
+                cls.findings[str(path.relative_to(repo_root))] = hits
 
-    def _scan_file_for_secrets(self, file_path):
-        try:
-            content = file_path.read_text(errors='ignore')
-            found_secrets = []
-            for pattern in self.common_secret_patterns:
-                matches = re.findall(pattern, content, re.IGNORECASE)
-                if matches:
-                    found_secrets.extend(matches)
-            return found_secrets
-        except Exception:
-            return []
+    def test_no_secrets_committed(self):
+        """Verify no known secret pattern is committed (reports file, line and masked value)."""
+        for name in SECRET_PATTERNS:
+            with self.subTest(pattern=name):
+                found = [
+                    f"{path}:{lineno} {masked}"
+                    for path, hits in self.findings.items()
+                    for hit, lineno, masked in hits
+                    if hit == name
+                ]
+                self.assertEqual(found, [], f"{name} found")
 
-    def test_no_aws_keys_committed(self):
-        """Verify no AWS access keys are committed."""
-        for file_path in self.repo_root.rglob("*"):
-            if file_path.is_file() and ".git" not in str(file_path):
-                secrets = self._scan_file_for_secrets(file_path)
-                aws_secrets = [s for s in secrets if s.startswith("AKIA")]
-                self.assertEqual(len(aws_secrets), 0, f"AWS keys found in {file_path}")
+    def test_every_pattern_detects_a_synthetic_secret(self):
+        """Fixtures are built at runtime so they do not trip push protection or trufflehog."""
+        samples = {
+            "aws_access_key": "AKIA" + "A" * 16,
+            "github_token": "ghp_" + "a" * 36,
+            "stripe_live_key": "sk_" + "live_" + "A" * 24,
+            "stripe_test_key": "sk_" + "test_" + "A" * 24,
+            "hardcoded_password": "pass" + 'word = "hunter2"',
+            "hardcoded_api_key": "API_" + "KEY='abc123'",
+        }
+        self.assertEqual(set(samples), set(SECRET_PATTERNS))
+        for name, sample in samples.items():
+            with self.subTest(pattern=name):
+                self.assertEqual([h[0] for h in find_secrets(sample)], [name])
 
-    def test_no_github_tokens_committed(self):
-        """Verify no GitHub tokens are committed."""
-        for file_path in self.repo_root.rglob("*"):
-            if file_path.is_file() and ".git" not in str(file_path):
-                secrets = self._scan_file_for_secrets(file_path)
-                gh_secrets = [s for s in secrets if s.startswith("ghp_")]
-                self.assertEqual(len(gh_secrets), 0, f"GitHub tokens found in {file_path}")
+    def test_innocent_text_is_clean(self):
+        self.assertEqual(find_secrets("Use uma variavel de ambiente para a senha e a chave de API."), [])
+
+    def test_report_masks_the_secret(self):
+        (hit,) = find_secrets("token: " + "ghp_" + "z" * 36)
+        self.assertEqual(hit, ("github_token", 1, "ghp_***"))
 
 
 class TestSecurityDocumentation(unittest.TestCase):

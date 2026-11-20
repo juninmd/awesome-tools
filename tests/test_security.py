@@ -149,32 +149,6 @@ class TestSecurityDocumentation(unittest.TestCase):
             self.assertIn("OWASP", content, "SECURITY.md must reference OWASP Top 10")
 
 
-class TestDependabotConfiguration(unittest.TestCase):
-    """Test Dependabot configuration for automated dependency updates."""
-
-    def setUp(self):
-        self.repo_root = Path(__file__).parent.parent
-
-    def test_dependabot_yml_exists(self):
-        """Verify .github/dependabot.yml exists."""
-        dependabot_path = self.repo_root / ".github" / "dependabot.yml"
-        self.assertTrue(dependabot_path.exists(), ".github/dependabot.yml must exist")
-
-    def test_dependabot_has_github_actions(self):
-        """Verify Dependabot monitors GitHub Actions."""
-        dependabot_path = self.repo_root / ".github" / "dependabot.yml"
-        if dependabot_path.exists():
-            content = dependabot_path.read_text()
-            self.assertIn("github-actions", content, "Dependabot must monitor github-actions")
-
-    def test_dependabot_has_schedule(self):
-        """Verify Dependabot has a schedule configured."""
-        dependabot_path = self.repo_root / ".github" / "dependabot.yml"
-        if dependabot_path.exists():
-            content = dependabot_path.read_text()
-            self.assertIn("schedule", content, "Dependabot must have schedule")
-
-
 class TestWorkflowPinning(unittest.TestCase):
     """Test that all GitHub Action references are pinned to full commit SHAs."""
 

@@ -131,7 +131,6 @@ flake8 tests/ --max-line-length=120 --ignore=E501,W503
 | `central-security.yml` | push em `master`, manual | varredura de segurança do reusable |
 | `security.yml` | push/PR em `main`/`master`, manual | TruffleHog, `pytest tests/test_security.py` e `flake8 tests/` |
 | `sast.yml` | push em `main`/`master`, manual | Semgrep, sem bloquear (`fail-semgrep: false`) |
-| `dependabot-auto-merge.yml` | PRs do Dependabot | auto-merge com checks verdes |
 
 ## Imagens
 

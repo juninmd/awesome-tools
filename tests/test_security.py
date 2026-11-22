@@ -10,6 +10,8 @@ This module validates security measures including:
 """
 
 import re
+import subprocess
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -53,8 +55,6 @@ SECRET_PATTERNS = {
     "hardcoded_api_key": re.compile(r"api[_-]?key[\"']?\s*[=:]\s*[\"'][^\"']+[\"']", re.IGNORECASE),
 }
 BINARY_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".pyc"}
-# Generated, untracked directories (compiled fixtures above would match their own patterns)
-SKIPPED_DIRS = {".git", "__pycache__", ".pytest_cache"}
 
 
 def find_secrets(text):
@@ -68,10 +68,12 @@ def find_secrets(text):
 
 
 def tracked_text_files(repo_root):
-    """Every text file outside the .git directory itself (.github and .gitignore are included)."""
-    for path in repo_root.rglob("*"):
-        if SKIPPED_DIRS & set(path.relative_to(repo_root).parts):
-            continue
+    """Every text file git tracks, so a local .venv or build output never counts as committed."""
+    listed = subprocess.run(
+        ["git", "ls-files", "-z"], cwd=repo_root, capture_output=True, check=True, text=True
+    ).stdout
+    for name in filter(None, listed.split("\0")):
+        path = repo_root / name
         if path.is_file() and path.suffix.lower() not in BINARY_SUFFIXES:
             yield path
 
@@ -129,6 +131,17 @@ class TestSecretScanning(unittest.TestCase):
 
     def test_innocent_text_is_clean(self):
         self.assertEqual(find_secrets("Use uma variavel de ambiente para a senha e a chave de API."), [])
+
+    def test_untracked_files_are_not_scanned(self):
+        """A secret inside a local virtualenv is not a committed secret; a tracked file is."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+            (root / "tracked.py").write_text("x = 1\n")
+            (root / ".venv").mkdir()
+            (root / ".venv" / "mod.py").write_text("pass" + 'word = "hunter2"\n')
+            subprocess.run(["git", "add", "tracked.py"], cwd=root, check=True)
+            self.assertEqual([p.name for p in tracked_text_files(root)], ["tracked.py"])
 
     def test_report_masks_the_secret(self):
         (hit,) = find_secrets("token: " + "ghp_" + "z" * 36)

@@ -29,5 +29,5 @@ flake8 tests/ --max-line-length=120
 ## Regras de Segurança e Boas Práticas
 
 - **Segredos:** Nunca commitar segredos, chaves de API, tokens, senhas ou credenciais.
-- **Pin de Actions:** Fixar todas as GitHub Actions por commit SHA completo em `.github/workflows/`.
+- **Pin de Actions:** Fixar todas as GitHub Actions de terceiros por commit SHA completo em `.github/workflows/`. Exceção: os reusáveis internos `juninmd/base-actions/...` usam sempre `@main` (política central do org; o teste de pinning os ignora).
 - **Workflows e CI:** Nunca editar arquivos em `.github/workflows/` sem rodar os testes localmente antes do commit.

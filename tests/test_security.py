@@ -50,8 +50,9 @@ SECRET_PATTERNS = {
     "github_token": re.compile(r"ghp_[0-9a-zA-Z]{36}"),
     "stripe_live_key": re.compile(r"sk_live_[0-9a-zA-Z]{24}"),
     "stripe_test_key": re.compile(r"sk_test_[0-9a-zA-Z]{24}"),
-    "hardcoded_password": re.compile(r"password\s*=\s*[\"'][^\"']+[\"']", re.IGNORECASE),
-    "hardcoded_api_key": re.compile(r"api[_-]?key\s*=\s*[\"'][^\"']+[\"']", re.IGNORECASE),
+    # "=" for code, ":" for YAML/JSON (key: "value", "key": "value")
+    "hardcoded_password": re.compile(r"password[\"']?\s*[=:]\s*[\"'][^\"']+[\"']", re.IGNORECASE),
+    "hardcoded_api_key": re.compile(r"api[_-]?key[\"']?\s*[=:]\s*[\"'][^\"']+[\"']", re.IGNORECASE),
 }
 BINARY_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".pyc"}
 
@@ -109,13 +110,24 @@ class TestSecretScanning(unittest.TestCase):
             "github_token": "ghp_" + "a" * 36,
             "stripe_live_key": "sk_" + "live_" + "A" * 24,
             "stripe_test_key": "sk_" + "test_" + "A" * 24,
-            "hardcoded_password": "pass" + 'word = "hunter2"',
-            "hardcoded_api_key": "API_" + "KEY='abc123'",
+            # Parenthesized so these dict entries do not match the ":" form themselves
+            "hardcoded_password": ("pass" + 'word = "hunter2"'),
+            "hardcoded_api_key": ("API_" + "KEY='abc123'"),
         }
         self.assertEqual(set(samples), set(SECRET_PATTERNS))
         for name, sample in samples.items():
             with self.subTest(pattern=name):
                 self.assertEqual([h[0] for h in find_secrets(sample)], [name])
+
+    def test_yaml_and_json_assignments_are_detected(self):
+        samples = {
+            "hardcoded_password": ["pass" + "word: 'hunter2'", '{"pass' + 'word": "hunter2"}'],
+            "hardcoded_api_key": ["api_" + 'key: "abc123secretvalue"', '{"api' + 'Key": "abc123"}'],
+        }
+        for name, lines in samples.items():
+            for line in lines:
+                with self.subTest(line=line):
+                    self.assertEqual([h[0] for h in find_secrets(line)], [name])
 
     def test_innocent_text_is_clean(self):
         self.assertEqual(find_secrets("Use uma variavel de ambiente para a senha e a chave de API."), [])

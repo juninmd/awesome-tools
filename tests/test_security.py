@@ -156,13 +156,16 @@ class TestWorkflowPinning(unittest.TestCase):
         self.repo_root = Path(__file__).parent.parent
         self.workflows_dir = self.repo_root / ".github" / "workflows"
 
+    # Org policy (base-actions-main-policy): internal reusables track @main, never a SHA
+    INTERNAL_PREFIX = "juninmd/base-actions/"
+
     def _find_unpinned_uses(self, content):
         unpinned = []
         for line in content.splitlines():
             match = re.search(r'uses:\s*(\S+)', line)
             if match:
                 ref = match.group(1)
-                if not ref.startswith('./'):
+                if not ref.startswith(('./', self.INTERNAL_PREFIX)):
                     if not re.search(r'@[0-9a-f]{40}', ref):
                         unpinned.append(ref)
         return unpinned
@@ -183,6 +186,14 @@ class TestWorkflowPinning(unittest.TestCase):
         self.assertEqual(len(unpinned), 2)
         sample_pinned = "  uses: owner/repo@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7"
         self.assertEqual(len(self._find_unpinned_uses(sample_pinned)), 0)
+
+    def test_internal_base_actions_may_track_main(self):
+        """juninmd/base-actions is referenced by @main on purpose; third-party @main still fails."""
+        sample = (
+            "    uses: juninmd/base-actions/.github/workflows/reusable-validate.yml@main\n"
+            "    uses: other/base-actions/.github/workflows/x.yml@main"
+        )
+        self.assertEqual(self._find_unpinned_uses(sample), ["other/base-actions/.github/workflows/x.yml@main"])
 
 
 class TestAgentsDocumentation(unittest.TestCase):

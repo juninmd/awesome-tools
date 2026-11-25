@@ -62,6 +62,7 @@ Não é um dump de links: cada item tem URL pública e uma frase dizendo o que r
 | [Ray.so](https://ray.so/) | Imagens de trechos de código. |
 | [Poet.so](https://poet.so/) | Imagens de posts do Twitter/X e LinkedIn. |
 | [Responsively App](https://responsively.app/) | Testa várias larguras de tela ao mesmo tempo. |
+| [Kite](https://kite.new/) | Ferramenta de design colaborativa em que agentes de IA (Claude, Cursor, Codex) editam o mesmo arquivo do time; copia frames como HTML, React ou Tailwind. |
 | [Yellow Brick React Road](https://javascript.plainenglish.io/creating-your-first-portfolio-website-following-the-yellow-brick-react-road-925dadfa1bc1) | Tutorial de portfólio em React. |
 
 ## Aprendizado & estudos
